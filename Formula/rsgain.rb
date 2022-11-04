@@ -1,9 +1,9 @@
 class Rsgain < Formula
   desc "A simple, but powerful ReplayGain 2.0 tagging utility"
   homepage "https://github.com/complexlogic/rsgain"
-  version "3.0.1"
-  url "https://github.com/complexlogic/rsgain/archive/refs/tags/v#{version}.tar.gz"
-  sha256 "928a0d5aefb0e2d195c44a7571425d39f0e5065050c534032ee746d91596f22d"
+  version "3.1"
+  url "https://github.com/complexlogic/rsgain/releases/download/v#{version}/rsgain-#{version}-source.tar.xz"
+  sha256 "c1ab2c2162c1046786254090f939d60da87994efad5715dde68aa5247f33eaa3"
   license "BSD-2-Clause"
 
   depends_on "cmake" => :build
