@@ -13,6 +13,11 @@ class Rsgain < Formula
   depends_on "taglib"
   depends_on "inih"
   depends_on "fmt"
+  
+  patch do
+    url "https://raw.githubusercontent.com/complexlogic/homebrew-tap/master/macos_fix.patch"
+  end
+
 
   def install
      system "cmake", "-S", ".", "-B", "build", *std_cmake_args

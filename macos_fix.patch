@@ -1,0 +1,14 @@
+diff --git a/src/output.hpp b/src/output.hpp
+index d730891..8b46aed 100755
+--- a/src/output.hpp
++++ b/src/output.hpp
+@@ -37,6 +37,9 @@
+ #include <syslog.h>
+ #include <limits.h>
+ #include <sys/ioctl.h>
++#ifdef __APPLE__
++#include <util.h>
++#endif
+ #endif
+ 
+ #ifdef _WIN32
