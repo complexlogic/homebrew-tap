@@ -1,14 +1,43 @@
+diff --git a/config/config.h.in b/config/config.h.in
+index 6c38b35..da38ccc 100755
+--- a/config/config.h.in
++++ b/config/config.h.in
+@@ -3,6 +3,7 @@
+ #define PROJECT_VERSION "@PROJECT_VERSION@"
+ #define PROJECT_URL "@PROJECT_HOMEPAGE_URL@"
+ 
+-#ifdef __unix__
++#ifndef _WIN32
+ #define PRESETS_DIR "@PRESETS_DIR@"
+-#endif
+\ No newline at end of file
++#endif
++
+diff --git a/src/easymode.cpp b/src/easymode.cpp
+index 6e3c7b2..b34ef53 100755
+--- a/src/easymode.cpp
++++ b/src/easymode.cpp
+@@ -456,7 +456,7 @@ static void load_preset(const char *preset)
+     if (!path.has_extension()) {
+ 
+         // Mac/Linux check user directory before system directory
+-#ifdef __unix__
++#ifndef _WIN32
+ #ifdef __APPLE__
+         join_paths(path, {(const char*) getenv("HOME"), "Library", EXECUTABLE_TITLE, "presets", preset});
+ #else
 diff --git a/src/output.hpp b/src/output.hpp
-index d730891..8b46aed 100755
+index d730891..1e3f787 100755
 --- a/src/output.hpp
 +++ b/src/output.hpp
-@@ -37,6 +37,9 @@
- #include <syslog.h>
- #include <limits.h>
+@@ -39,6 +39,10 @@
  #include <sys/ioctl.h>
+ #endif
+ 
 +#ifdef __APPLE__
 +#include <util.h>
 +#endif
- #endif
- 
++
  #ifdef _WIN32
+ #include <windows.h>
+ #endif
