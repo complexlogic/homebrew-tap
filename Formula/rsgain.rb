@@ -1,9 +1,9 @@
 class Rsgain < Formula
   desc "A simple, but powerful ReplayGain 2.0 tagging utility"
   homepage "https://github.com/complexlogic/rsgain"
-  version "3.1"
+  version "3.1.1"
   url "https://github.com/complexlogic/rsgain/releases/download/v#{version}/rsgain-#{version}-source.tar.xz"
-  sha256 "c1ab2c2162c1046786254090f939d60da87994efad5715dde68aa5247f33eaa3"
+  sha256 "0c9efdf7433943f2e3674a6859eb72c80fede333b5e86151eaa0492e83923d5a"
   license "BSD-2-Clause"
 
   depends_on "cmake" => :build
@@ -14,11 +14,6 @@ class Rsgain < Formula
   depends_on "inih"
   depends_on "fmt"
   
-  patch do
-    url "https://raw.githubusercontent.com/complexlogic/homebrew-tap/master/macos_fix.patch"
-  end
-
-
   def install
      system "cmake", "-S", ".", "-B", "build", *std_cmake_args
      cd "build"
